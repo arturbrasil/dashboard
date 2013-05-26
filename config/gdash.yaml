@@ -5,7 +5,7 @@
 :options:
   :title: MireVeja
   :prefix: ""
-  :refresh_rate: 1
+  :refresh_rate: 2
   :graph_columns: 3
   :graph_width: 450
   :graph_height: 300

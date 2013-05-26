@@ -1,12 +1,14 @@
 app = @properties[:app]
 version = @properties[:version]
 env = @properties[:vtex_env]
-title       "Tempo de resposta do Backend" 
+title       "Tempo d do Backend " 
 vtitle      "microseconds"
 area        :none
 description :"vtexcommerce.com.br/#{app}?vtex_env=#{env} "
 linewidth 2
 draw_null_as_zero true
+line :caption => "Critical", :value => 100, :color => "red", :dashed => true
+line :caption => "Warning",  :value =>  50, :color => "orange", :dashed => true
 field :http500,
                :color => "red",
                :alias => "5xx",

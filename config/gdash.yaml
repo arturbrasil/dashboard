@@ -11,19 +11,19 @@
   :graph_height: 300
   :interval_filters:
     - :label: Última Hora
-      :from: -1hour
+      :from: -1hora
       :to: now
-    - :label: Último Dia
+    - :label: "6 Horas antes"
+      :from: -6hour
+    - :label: "1 dia antes"
       :from: -1day
-    - :label: Última Semana
-      :from: -1week
-    - :label: Último Mês
+    - :label: "1 semana antes"
+      :from: -7day
+    - :label: "1 mês antes"
       :from: -1month
-    - :label: Último Ano
-      :from: -1year
   :intervals:
-    - [ "-1hour", "1 hour" ]
-    - [ "-2hour", "2 hour" ]
-    - [ "-1day", "1 day" ]
-    - [ "-1month", "1 month" ]
-    - [ "-1year", "1 year" ]
+    - [ "-1hour", "1 hora" ]
+    - [ "-6hour", "6 horas" ]
+    - [ "-7day", "1 semana" ]
+    - [ "-15day", "15 dias" ]
+    - [ "-1month", "1 mes" ]

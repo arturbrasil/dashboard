@@ -1,6 +1,6 @@
-DIR=/opt/gdash/graph_templates/dashboards/$1
+DIR=/opt/dashboard/graph_templates/dashboards/$1
 mkdir -p $DIR
-cp /opt/gdash/graph_templates/dashboards/portal/* $DIR -R
+cp /opt/dashboard/graph_templates/dashboards/portal/* $DIR -R
 echo "
 :name: $1
 :description: $1

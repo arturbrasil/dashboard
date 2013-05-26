@@ -1,8 +1,8 @@
 
-:name: admin
-:description: admin
+:name: logist
+:description: logist
 :graph_properties:
-    :app: admin
+    :app: logist
     :environment: stable
     :version: 01.00.00
     :background_color: white

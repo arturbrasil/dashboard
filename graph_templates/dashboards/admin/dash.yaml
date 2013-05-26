@@ -1,0 +1,6 @@
+:name: admin
+:description: 
+:graph_properties:
+    :app: admin
+    :vtex_env: stable
+    :version: 01.00.00	

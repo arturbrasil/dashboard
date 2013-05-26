@@ -1,25 +1,25 @@
-:graphite: http://ec2-54-224-232-60.compute-1.amazonaws.com:8085
-:templatedir: /opt/gdash/graph_templates
+:graphite: http://graphite.example.net
+:templatedir: /path/to/my/graph/templates
 #:username: admin
 #:password: secret
 :options:
-  :title: MireVeja
+  :title: My Dashboard
   :prefix: ""
-  :refresh_rate: 1
-  :graph_columns: 3
-  :graph_width: 450
-  :graph_height: 300
+  :refresh_rate: 60
+  :graph_columns: 2
+  :graph_width: 500
+  :graph_height: 250
   :interval_filters:
-    - :label: Última Hora
+    - :label: Last Hour
       :from: -1hour
       :to: now
-    - :label: Último Dia
+    - :label: Last Day
       :from: -1day
-    - :label: Última Semana
+    - :label: Last Week
       :from: -1week
-    - :label: Último Mês
+    - :label: Last Month
       :from: -1month
-    - :label: Último Ano
+    - :label: Last Year
       :from: -1year
   :intervals:
     - [ "-1hour", "1 hour" ]

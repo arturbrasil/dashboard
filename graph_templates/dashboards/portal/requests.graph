@@ -1,29 +1,20 @@
 app = @properties[:app]
 version = @properties[:version]
 env = @properties[:vtex_env]
-title       "vtexcommerce.com.br/#{app}?vtex_env=#{env}" 
+title       "Tempo de resposta do Backend" 
 vtitle      "microseconds"
-area        :stacked
-description "Versão: #{version}"
+area        :none
+description :"vtexcommerce.com.br/#{app}?vtex_env=#{env} "
 linewidth 2
-field :http200, :scale => 0.001,
-               :color => "blue",
-               :alias => "2xx",
-               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.200.count"
-
-field :http400, :scale => 0.001,
-               :color => "orange",
-               :alias => "4xx",
-               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.400.count"
-
-field :http300, :scale => 0.001,
-               :color => "gree",
-               :alias => "3xx",
-               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.300.count"
-
-field :http500, :scale => 0.001,
+draw_null_as_zero true
+field :http500,
                :color => "red",
                :alias => "5xx",
-               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.500.count"
+               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.5*.count"
+field :http300, 
+               :color => "green",
+               :alias => "3xx",
+               :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.01.00.00.MISS.3*.count"
+
 
 

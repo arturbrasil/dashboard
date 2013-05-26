@@ -72,13 +72,14 @@
                 <%= yield %>
         </div>
         <div class="container">
+           <br> </br>
             <h6 id="updated"></h6>
         </div>
         <script>
               $('.dropdown-toggle').dropdown()
             $(document).ready(function() {
                 var now = new Date();
-                $('#updated').text('Updated ' + now.toLocaleString())
+                $('#updated').text('Atualizado em ' + now.toLocaleString())
                 setInterval(reloadDash, <%= @refresh_rate * 1000 %>);
             });
             function reloadDash() {
@@ -87,7 +88,7 @@
                     var url = $(this).attr('src').replace(/&\d+$/, '');
                     $(this).attr('src', url + '&' + now.getTime());
                 });
-                $('#updated').text('Updated ' + now.toLocaleString())
+                $('#updated').text('Atualizado em ' + now.toLocaleString())
             }
         </script>
     </body>

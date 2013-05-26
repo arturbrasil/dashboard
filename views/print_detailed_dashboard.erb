@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="<%= @prefix %>/bootstrap/bootstrap.css">
+    <script src="<%= @prefix %>/js/jquery-1.7.2.min.js"></script>
+    <script language=Javascript>
+window.print();
+ClosePrint();
+function ClosePrint( )
+{
+setTimeout("window.close();",1000);
+}
+    </script>
+</head>
+<body bgcolor="white">
+<% if @error %>
+   <h2><%= @error %></h2>
+<% else %>
+<h1><%= @dashboard.name %>&nbsp;<small><%= @dashboard.description %></small></h1>
+<% span=12/@graph_columns %>
+<table>
+<tr>
+<% @graphs.each_with_index do |graph,i| %>
+  <% if graph %>
+    <% if i>0 and i%@graph_columns==0 %>
+       </tr>
+       <tr>
+    <%end%>
+        <td>
+          <%= erb(:graph, :locals => { :graph => graph, :omit_link => true }) %>
+        </td>
+  <% end %>
+<% end %>
+</tr>
+</table>
+<% end %>
+</body>
+</html>
+

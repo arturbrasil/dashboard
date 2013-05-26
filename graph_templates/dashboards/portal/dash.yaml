@@ -3,4 +3,7 @@
 :graph_properties:
     :app: portal
     :vtex_env: stable
-    :version: 01.00.00	
+    :version: 01.00.00
+    :background_color: white
+    :foreground_color: black
+    :vertical_mark_color: "#330000"	

@@ -1,0 +1,16 @@
+DIR=/opt/gdash/graph_templates/dashboards/$1
+mkdir -p $DIR
+cp /opt/gdash/graph_templates/dashboards/portal/* $DIR -R
+echo "
+:name: $1
+:description: $1
+:graph_properties:
+    :app: $1
+    :environment: $2
+    :version: $3
+    :background_color: white
+    :foreground_color: black
+    :vertical_mark_color: "#330000"
+
+" > $DIR/dash.yaml
+

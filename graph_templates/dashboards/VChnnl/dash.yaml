@@ -1,0 +1,12 @@
+
+:name: VChnnl
+:description: VChnnl
+:graph_properties:
+    :app: VChnnl
+    :environment: stable
+    :version: 01.00.00
+    :background_color: white
+    :foreground_color: black
+    :vertical_mark_color: #330000
+
+

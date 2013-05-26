@@ -1,9 +1,9 @@
 :name: Portal
 :description: Portal
-:graph_properties:
-    :app: portal
-    :vtex_env: stable
-    :version: 01.00.00
-    :background_color: white
-    :foreground_color: black
-    :vertical_mark_color: "#330000"	
+:graph_properties: 
+ :background_color: white
+ :foreground_color: black
+ :vertical_mark_color: "#330000"
+ :environment: stable
+ :app: portal
+ :version: 01.00.00

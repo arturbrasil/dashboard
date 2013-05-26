@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="<%= @prefix %>/bootstrap/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="<%= @prefix %>/bootstrap/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="<%= @prefix %>/js/jquery-ui-timepicker-addon.css">
+        <script src="<%= @prefix %>/js/jquery-1.7.2.min.js"></script>
+        <script src="<%= @prefix %>/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="<%= @prefix %>/js/jquery-ui-timepicker-addon.js"></script>
+        <script src="<%= @prefix %>/js/jquery-ui-sliderAccess.js"></script>
+        <script src="<%= @prefix %>/js/jquery.cookie.js"></script>
+        <script src="<%= @prefix %>/js/selectdate.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-twipsy.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-scrollspy.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-dropdown.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-tooltip.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-popover.js"></script>
+        <script src="<%= @prefix %>/js/bootstrap-typeahead.js"></script>
+        <title><%= @dash_title %></title>
+    </head>
+    <body>
+        <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="brand" href="<%= @prefix %>/"><%= @dash_title %></a>
+                        <ul class="nav">
+                        <% @top_level.keys.sort.each do |category| %>
+                          <li class="dropdown" id="menu-<%= category %>">
+                                <a href="#" data-toggle="dropdown" href="#menu-<%= category %>" class="dropdown-toggle"><%= category.capitalize %> <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                <% @top_level[category].dashboards.sort_by{|b| b[:name].to_s}.each do |board| %>
+                                    <li><a href="<%= [@prefix, category, board[:link]].join('/') %>/"><%= board[:name] %></a></li>
+                                <% end %>
+                                </ul>
+                            </li>
+                        <% end %>
+                        </ul>
+  			            <ul class="nav secondary-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle">Experimente!</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<%= @graphite_base %>">Graphite Browser</a></li>
+                                    <% if @dashboard %>
+                                        <li class="divider"></li>
+                                        <li><a href="<%= uri_to_print %>" target="_blank">Imprima!</a></li>
+                                    <% end %> 
+                                </ul>
+                            </li>
+			            </ul>
+                  <div class="pull-right" style="" class='nav input-append'>
+                      <form id="form-search" name="dashboards" style="margin: 0;" class="form-search" method="get" action="<%= @prefix %>/search">
+                      <div class="input-append">
+                      <input class="span2 search-query" name="dashboard" type="text" placeholder="Dashboard..." data-provide="typeahead" data-items="10" data-source='<%= @search_elements.to_s %>' autocomplete="off" />
+                      <button class="btn btn-primary" style="margin-left: -5px; padding-bottom: 5px;" type="submit" value"submit" /><i class="icon-search icon-white"></i></button>
+                      </div>
+                      </form>
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+                <% if @error %>
+                <div class="alert alert-error alert-block">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <h4>Error!</h4>
+                  <%= @error %>
+                </div>
+                <% end %>
+                <%= yield %>
+        </div>
+        <div class="container">
+            <h6 id="updated"></h6>
+        </div>
+        <script>
+              $('.dropdown-toggle').dropdown()
+            $(document).ready(function() {
+                var now = new Date();
+                $('#updated').text('Updated ' + now.toLocaleString())
+                setInterval(reloadDash, <%= @refresh_rate * 1000 %>);
+            });
+            function reloadDash() {
+                var now = new Date();
+                $('img').each(function(index) {
+                    var url = $(this).attr('src').replace(/&\d+$/, '');
+                    $(this).attr('src', url + '&' + now.getTime());
+                });
+                $('#updated').text('Updated ' + now.toLocaleString())
+            }
+        </script>
+    </body>
+</html>

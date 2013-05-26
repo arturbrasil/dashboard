@@ -1,0 +1,6 @@
+:name: Portal
+:description: Portal
+:graph_properties:
+    :app: portal
+    :vtex_env: stable
+    :version: 01.00.00	

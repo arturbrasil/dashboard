@@ -9,8 +9,8 @@ linewidth 1
 draw_null_as_zero true
 field :http2001, 
 	       	:color => "yellow",
-	      	:alias => "Atual ",
-	     	:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.2*.count"
+	      	:alias => "#{version}",
+	     	:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.2*.count_ps"
 
 field :http2002, 
 	   	:color => "blue",

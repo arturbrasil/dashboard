@@ -11,7 +11,7 @@
   :graph_height: 300
   :interval_filters:
     - :label: Última Hora
-      :from: -1hora
+      :from: -1hour
       :to: now
     - :label: "6 Horas antes"
       :from: -6hour

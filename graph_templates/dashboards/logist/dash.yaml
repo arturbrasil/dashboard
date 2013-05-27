@@ -1,9 +1,8 @@
-
 :name: logist
 :description: logist
 :graph_properties:
     :app: logist
-    :environment: stable
+    :environment: beta
     :version: 01.00.00
     :background_color: white
     :foreground_color: black

@@ -10,19 +10,19 @@ draw_null_as_zero true
 field :http5001, 
 	   	:color => "yellow",
 	  	:alias => "Atual",
-	 	:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.5*.count"
+	 	:data  => "stats.timers.MireVeja.deliver.*.#{env}.*.*.*..MISS.5*.count"
 field :http5002, 
 		:color => "red",
 		:alias => "Max ",
-		:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.5*.upper"
+		:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.*.*.*.MISS.5*.upper"
 
 field :http5003, 
                 :color => "blue",
                 :alias => "Min",
-                :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.5*.lower"
+                :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.*.*.*.MISS.5*.lower"
 
 field :http5004,
                 :color => "green",
                 :alias => "Med",
-                :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.5*.mean"
+                :data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.*.*.*.MISS.5*.mean"
 

@@ -11,7 +11,7 @@ draw_null_as_zero true
 envs.each do |env|
 	versions.each do |version|
 		params = {
-			:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.*.mean_90",
+			:data => "avg(stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.*.mean_90)",
 			:alias => "#{env} - #{version}"
 		}
 		params[:alias] = "#{env}" if versions.count <= 1

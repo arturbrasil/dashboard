@@ -5,10 +5,14 @@ area        :none
 description "Requests respondidos com o cache ou backend para app #{app}"
 linewidth 1
 draw_null_as_zero true
-["Cache", "Backend"].each do |cache|
+["MISS", "HIT"].each do |cache|
+	label = {
+		"MISS" => "backend",
+		"HIT" => "cache"
+	}
 	params = {
-		:data => "avg(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.#{cache}.*.count_ps)",
-		:alias => cache
+		:data => "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.#{cache}.*.count_ps)",
+		:alias => label[cache]
 	}
 	field "#{cache}", params
 end

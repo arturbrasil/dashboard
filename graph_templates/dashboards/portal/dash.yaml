@@ -4,6 +4,6 @@
  :background_color: white
  :foreground_color: black
  :vertical_mark_color: "#330000"
- :environment: ["stable", "beta"] 
+ :environment: ["stable", "beta"]
  :app: portal
  :version: [01.00.00, 01.01.15, 02.12.12]

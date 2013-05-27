@@ -7,10 +7,15 @@ area        :none
 description "Respostas 4xx para app #{app}"
 linewidth 1
 draw_null_as_zero true
+
+params = {
+	data: "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.4*.count_ps"
+	alias: "#{env} - #{version}"
+}
+params[:alias] = "#{env}" if versions.count <= 1
+
 envs.each do |env|
 	versions.each do |version|
-		field "#{env}#{version}",
-	  	:alias => "#{env} - #{version}",
-	 	:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.4*.count_ps"
+		field "#{env}#{version}", params
 	end
 end

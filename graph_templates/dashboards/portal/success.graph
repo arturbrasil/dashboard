@@ -1,6 +1,6 @@
 app = @properties[:app]
-versions = @properties[:versions]
-envs = @properties[:environments]
+versions = @properties[:version]
+envs = @properties[:environment]
 title       "HTTP 2xx" 
 vtitle      "requests/s"
 area        :none

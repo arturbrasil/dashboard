@@ -1,20 +1,20 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "HTTP 2xx" 
+title       "HTTP 3xx" 
 vtitle      "requests/s"
 area        :none
-description "Respostas 2xx para app #{app}"
+description "Respostas 3xx para app #{app}"
 linewidth 1
 draw_null_as_zero true
 
 envs.each do |env|
-	params = {
-		:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.2*.count_ps",
-		:alias => "#{env} - #{version}"
-	}
-	params[:alias] = "#{env}" if versions.count <= 1
 	versions.each do |version|
+		params = {
+			:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.3*.count_ps",
+			:alias => "#{env} - #{version}"
+		}
+		params[:alias] = "#{env}" if versions.count <= 1
 		field "#{env}#{version}", params
 	end
 end

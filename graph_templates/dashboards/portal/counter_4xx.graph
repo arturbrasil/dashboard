@@ -9,12 +9,12 @@ linewidth 1
 draw_null_as_zero true
 
 envs.each do |env|
-	params = {
-		:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.4*.count_ps",
-		:alias => "#{env} - #{version}"
-	}
-	params[:alias] = "#{env}" if versions.count <= 1
 	versions.each do |version|
+		params = {
+			:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.4*.count_ps",
+			:alias => "#{env} - #{version}"
+		}
+		params[:alias] = "#{env}" if versions.count <= 1
 		field "#{env}#{version}", params
 	end
 end

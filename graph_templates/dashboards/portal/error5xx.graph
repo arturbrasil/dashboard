@@ -1,15 +1,16 @@
 app = @properties[:app]
 versions = @properties[:version]
-version = versions.first
 envs = @properties[:environment]
 title       "HTTP 5xx" 
 vtitle      "requests/s"
 area        :none
-description "Versão: #{version}"
+description "Respostas 5xx para app #{app}"
 linewidth 1
 draw_null_as_zero true
 envs.each do |env|
-	field "#{env}",
-	  	:alias => "#{env}",
+	versions.each do |version|
+		field "#{env}#{version}",
+	  	:alias => "#{env} - #{version}",
 	 	:data  => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.5*.count_ps"
+	end
 end

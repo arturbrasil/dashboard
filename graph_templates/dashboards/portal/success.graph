@@ -1,16 +1,16 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "HTTP 4xx" 
+title       "HTTP 2xx" 
 vtitle      "requests/s"
 area        :none
-description "Respostas 4xx para app #{app}"
+description "Respostas 2xx para app #{app}"
 linewidth 1
 draw_null_as_zero true
 
 params = {
-	data: "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.4*.count_ps"
-	alias: "#{env} - #{version}"
+	:data => "stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.2*.count_ps"
+	:alias => "#{env} - #{version}"
 }
 params[:alias] = "#{env}" if versions.count <= 1
 

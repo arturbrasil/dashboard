@@ -1,13 +1,13 @@
 app = @properties[:app]
-title       "Requests respondidos com o cache" 
-vtitle      "requests/s"
+title       "Origem das respostas" 
+vtitle      "responses/s"
 area        :none
-description "Requests respondidos com o cache para app #{app}"
+description "Requests respondidos com o cache ou backend para app #{app}"
 linewidth 1
 draw_null_as_zero true
-["HIT", "MISS"].each do |cache|
+["Cache", "Backend"].each do |cache|
 	params = {
-		:data => "avg(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.#{cache}.*.mean_90)",
+		:data => "avg(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.#{cache}.*.count_ps)",
 		:alias => cache
 	}
 	field "#{cache}", params

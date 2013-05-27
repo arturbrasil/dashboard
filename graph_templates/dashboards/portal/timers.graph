@@ -6,7 +6,7 @@ vtitle      "microseconds"
 area        :none
 description "Tempo de resposta para app #{app}"
 linewidth 1
-draw_null_as_zero true
+draw_null_as_zero false
 
 envs.each do |env|
 	versions.each do |version|

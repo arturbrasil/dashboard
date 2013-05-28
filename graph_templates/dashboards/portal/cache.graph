@@ -1,7 +1,7 @@
 app = @properties[:app]
 title       "Todas as respostas" 
 vtitle      "respostas/s"
-area        :none
+area        :stacked
 description "Requests respondidos com o cache ou backend para app #{app}"
 linewidth 1
 draw_null_as_zero true

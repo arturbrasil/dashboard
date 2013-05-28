@@ -5,7 +5,7 @@ title       "Respostas HTTP 4xx do BACKEND"
 vtitle      "respostas/s"
 area        :none
 description "Respostas 4xx para app #{app}"
-linewidth 1
+linewidth 2
 draw_null_as_zero true
 
 envs.each do |env|

@@ -1,5 +1,5 @@
 app = @properties[:app]
-title       "Origem das respostas" 
+title       "Todas as respostas" 
 vtitle      "respostas/s"
 area        :none
 description "Requests respondidos com o cache ou backend para app #{app}"

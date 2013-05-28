@@ -6,7 +6,7 @@ require 'gdash'
 
 set :run, false
 
-config = YAML.load_file(File.expand_path("../config/gdash.yaml", __FILE__))
+config = YAML.load_file(File.expand_path("../config/dash.yaml", __FILE__))
 
 # If you want basic HTTP authentication
 # include :username and :password in gdash.yaml

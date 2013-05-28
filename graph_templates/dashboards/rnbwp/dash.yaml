@@ -3,8 +3,8 @@
 :description: rnbwp
 :graph_properties:
     :app: rnbwp
-    :environment: stable
-    :version: 02.00.01
+    :environment: [stable, beta]
+    :version: [01.00.00]
     :background_color: white
     :foreground_color: black
     :vertical_mark_color: #330000

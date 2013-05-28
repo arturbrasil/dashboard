@@ -1,0 +1,11 @@
+:name: Portal
+:description: Portal
+:graph_properties: 
+ :background_color: white
+ :foreground_color: black
+ :vertical_mark_color: "#330000"
+ :environment: ["stable", "beta"]
+ :app: portal
+ :version: [01.00.00]
+ :clients_hostname: [ " ", " "]
+ :backend_ips: [ " ", " " ]

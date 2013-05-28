@@ -6,11 +6,10 @@ echo "
 :description: $1
 :graph_properties:
     :app: $1
-    :environment: $2
-    :version: $3
+    :environment: ["stable", "beta"]
+    :version: [01.00.00]
     :background_color: white
     :foreground_color: black
     :vertical_mark_color: "#330000"
 
 " > $DIR/dash.yaml
-

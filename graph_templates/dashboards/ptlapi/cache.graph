@@ -1,0 +1,19 @@
+app = @properties[:app]
+title       "Todas as respostas" 
+vtitle      "respostas/s"
+#area        :stacked
+description "Requests respondidos com o cache ou backend para app #{app}"
+linewidth 2
+linemode :slope
+draw_null_as_zero true
+["MISS", "HIT"].each do |cache|
+	label = {
+		"MISS" => "backend",
+		"HIT" => "cache"
+	}
+	params = {
+		:data => "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.#{cache}.*.count_ps)",
+		:alias => label[cache]
+	}
+	field "#{cache}", params
+end

@@ -1,9 +1,8 @@
-
-:name: logist
-:description: logist
+:name: sno
+:description: sno
 :graph_properties:
-    :app: logist
-    :environment: [stable, beta]
+    :app: sno
+    :environment: ["stable", "beta"]
     :version: [01.00.00]
     :background_color: white
     :foreground_color: black

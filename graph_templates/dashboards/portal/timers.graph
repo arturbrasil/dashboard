@@ -2,7 +2,7 @@ app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
 title       "Tempo de resposta" 
-vtitle      "microseconds"
+vtitle      "miliseconds"
 area        :none
 description "Tempo de resposta para app #{app}"
 linewidth 1

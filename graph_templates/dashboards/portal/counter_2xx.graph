@@ -1,8 +1,8 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "HTTP 2xx" 
-vtitle      "requests/s"
+title       "Respostas HTTP 2xx do BACKEND" 
+vtitle      "respostas/s"
 area        :none
 description "Respostas 2xx para app #{app}"
 linewidth 1

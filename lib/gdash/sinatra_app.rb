@@ -241,6 +241,10 @@ class GDash
       markdown :README, :layout_engine => :erb
     end
 
+    get '/json' do
+      erb :json
+    end
+
     helpers do
       include Rack::Utils
 

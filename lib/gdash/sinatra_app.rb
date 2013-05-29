@@ -1,7 +1,6 @@
 require 'cgi'
 require 'json'
 # require 'open-uri'
-require 'net/http'
 
 class GDash
   class SinatraApp < ::Sinatra::Base
@@ -247,12 +246,7 @@ class GDash
     end
 
     get '/json' do
-      puts @graphite_base
       #@all_metrics = open @graphite_all_metrics
-      @all_metrics = Net::HTTP.get_response(URI @graphite_all_metrics)
-      5.times{ puts '-------------------------------------------------------'}
-      puts @all_metrics
-      5.times{ puts '-------------------------------------------------------'}
       erb :json
     end
 

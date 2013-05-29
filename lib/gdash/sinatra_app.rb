@@ -1,5 +1,6 @@
 require 'cgi'
 require 'json'
+require 'open-uri'
 
 class GDash
   class SinatraApp < ::Sinatra::Base
@@ -12,6 +13,9 @@ class GDash
 
       # where the graphite renderer is
       @graphite_render = [@graphite_base, "/render/"].join
+
+      # graphite all metrics json
+      @graphite_all_metrics = [@graphite_base, "/metrics/index.json"].join
 
       # where to find graph, dash etc templates
       @graph_templates = graph_templates
@@ -242,6 +246,7 @@ class GDash
     end
 
     get '/json' do
+      @all_metrics = open(@graphite_all_metrics).read
       erb :json
     end
 

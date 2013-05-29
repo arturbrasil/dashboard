@@ -1,4 +1,5 @@
 <% unless @error %>
+<div class="container">
 <%  @dashboard_to_display.keys.sort.each do |key| %>
 <h2> <%= key.capitalize %> </h2>
 <table class="table">
@@ -14,5 +15,6 @@
         <% end %>
     </tbody>
 </table>
-<%   end %>
+<% end %>
+</div>
 <% end %>

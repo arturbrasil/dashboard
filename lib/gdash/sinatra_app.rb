@@ -1,6 +1,6 @@
 require 'cgi'
 require 'json'
-# require 'open-uri'
+require 'open-uri'
 
 class GDash
   class SinatraApp < ::Sinatra::Base
@@ -243,11 +243,6 @@ class GDash
 
     get '/docs/' do
       markdown :README, :layout_engine => :erb
-    end
-
-    get '/json' do
-      #@all_metrics = open @graphite_all_metrics
-      erb :json
     end
 
     helpers do

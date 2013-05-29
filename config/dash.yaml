@@ -1,5 +1,6 @@
 :graphite: http://vejao.mireveja.vtex.com.br:8085
-:templatedir: /opt/dashboard/graph_templates
+# :templatedir: /opt/dashboard/graph_templates
+:templatedir: graph_templates
 #:username: admin
 #:password: secret
 :options:

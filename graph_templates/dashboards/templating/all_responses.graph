@@ -1,0 +1,33 @@
+app = @properties[:app]
+title       "Todas as respostas" 
+vtitle      "respostas/s"
+area        :stacked
+description "Requests respondidos com o cache ou backend para app #{app}"
+linewidth 2
+draw_null_as_zero true
+
+field "Varnish", {
+	data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.HIT.*.count_ps)",
+	alias: "Varnish",
+	color: "blue"
+}
+field "Backend - 2xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.2*.count_ps)",
+		alias: "Backend - 2xx",
+		color: "green"
+}
+field "Backend - 3xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.3*.count_ps)",
+		alias: "Backend - 3xx",
+		color: "yellow"
+}
+field "Backend - 4xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.4*.count_ps)",
+		alias: "Backend - 4xx",
+		color: "orange"
+}
+field "Backend - 5xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.5*.count_ps)",
+		alias: "Backend - 5xx",
+		color: "red"
+}

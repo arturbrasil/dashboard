@@ -1,0 +1,9 @@
+:name: portal
+:description: portal
+:graph_properties: 
+ :background_color: white
+ :foreground_color: black
+ :vertical_mark_color: "#330000"
+ :environment: ["beta", "stable"]
+ :app: portal
+ :version: [01.00.00]

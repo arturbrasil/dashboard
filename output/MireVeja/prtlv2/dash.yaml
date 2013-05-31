@@ -1,0 +1,9 @@
+:name: prtlv2
+:description: prtlv2
+:graph_properties: 
+ :background_color: white
+ :foreground_color: black
+ :vertical_mark_color: "#330000"
+ :environment: ["beta", "stable"]
+ :app: prtlv2
+ :version: [01.00.00]

@@ -1,0 +1,9 @@
+:name: pfsys
+:description: pfsys
+:graph_properties: 
+ :background_color: white
+ :foreground_color: black
+ :vertical_mark_color: "#330000"
+ :environment: ["stable"]
+ :app: pfsys
+ :version: [01.00.00]

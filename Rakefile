@@ -43,12 +43,12 @@ task :metrics do
       end
     end
     
-    system "rm -r output && mkdir output"
+    system "rm -rf output && mkdir output"
     apps.each do |app_name, env_hash|
-        system "mkdir output/#{app_name}"
+        system "mkdir -p output/MireVeja/#{app_name}"
         Dir["templates/*.erb"].each do |template|
-            output_filename = template.scan(/templates\/(\w*).erb/)[0]
-            f = File.new("output/#{app_name}/#{output_filename}.graph", 'w')
+            output_filename = template.scan(/templates\/(\w*.\w*).erb/)[0][0]
+            f = File.new("output/MireVeja/#{app_name}/#{output_filename}", 'w')
             r = Renderer.new({app: app_name, env: env_hash})
             f.puts r.render(File.open(template, "r").read)
             f.close

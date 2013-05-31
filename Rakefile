@@ -20,7 +20,7 @@ task :metrics do
     parsed = JSON.parse(all_metrics.read)
 
     parsed.each do |metric|
-    	metric.scan(matcher) { |app, env| apps[app.to_s] << env.to_s }
+    	metric.scan(matcher) { |app, env| apps[app.to_s] << env.to_s}
     end    
     trash.each {|t| apps.delete t}
 end

@@ -1,12 +1,9 @@
-
 :name: VChnnl
 :description: VChnnl
-:graph_properties:
-    :app: VChnnl
-    :environment: [stable, beta]
-    :version: [01.00.00]
-    :background_color: white
-    :foreground_color: black
-    :vertical_mark_color: #330000
-
-
+:graph_properties: 
+ :background_color: "FAFAFA"
+ :foreground_color: "3A3A3A"
+ :vertical_mark_color: "#330000"
+ :environment: ["beta", "stable"]
+ :app: VChnnl
+ :version: ["01.00.00"]

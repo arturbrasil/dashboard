@@ -1,12 +1,9 @@
-
 :name: rnbwp
 :description: rnbwp
-:graph_properties:
-    :app: rnbwp
-    :environment: [stable, beta]
-    :version: [01.00.00]
-    :background_color: white
-    :foreground_color: black
-    :vertical_mark_color: #330000
-
-
+:graph_properties: 
+ :background_color: "FAFAFA"
+ :foreground_color: "3A3A3A"
+ :vertical_mark_color: "#330000"
+ :environment: ["beta", "stable"]
+ :app: rnbwp
+ :version: ["02.00.01"]

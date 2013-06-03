@@ -1,7 +1,7 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "Tempo de resposta medio do BACKEND" 
+title       "Tempo de medio de resposta dos BACKENDs" 
 vtitle      "miliseconds"
 area        :none
 description "Tempo de resposta para app #{app}"

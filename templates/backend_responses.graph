@@ -6,7 +6,7 @@ vtitle      "respostas/s"
 area        :none
 description "Respostas #{app} por segundo"
 linewidth 2
-draw_null_as_zero false
+draw_null_as_zero true
 
 envs.each do |env|
 	versions.each do |version|

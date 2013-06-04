@@ -4,7 +4,7 @@ version = "n-a"
 title       "Respostas | beta n-a" 
 vtitle      "respostas/s"
 area        :stacked
-description "Requests respondidos somente pelos backends"
+description "Requests enviados para beta n-a respondidos pela app (non-cached) por status code"
 linewidth 2
 draw_null_as_zero true
 

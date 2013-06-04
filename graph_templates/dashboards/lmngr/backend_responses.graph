@@ -1,10 +1,10 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "Respostas dos BACKENDs por environment/version" 
+title       "Respostas das apps por ambiente | versao" 
 vtitle      "respostas/s"
 area        :none
-description "Respostas por segundo"
+description "Número de respostas por segundo dadas pela app (non-cached)"
 linewidth 2
 draw_null_as_zero true
 
@@ -12,7 +12,7 @@ envs.each do |env|
 	versions.each do |version|
 		params = {
 			data: "sum(stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.*.count_ps)",
-			alias: "#{env}/#{version}"
+			alias: "#{env}|#{version}"
 		}
 		# params[:alias] = "#{env}" if versions.count <= 1
 		field "#{env}#{version}", params

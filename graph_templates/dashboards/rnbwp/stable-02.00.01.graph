@@ -4,7 +4,7 @@ version = "02.00.01"
 title       "Respostas | stable 02.00.01" 
 vtitle      "respostas/s"
 area        :stacked
-description "Requests respondidos somente pelos backends"
+description "Requests enviados para stable 02.00.01 respondidos pela app (non-cached) por status code"
 linewidth 2
 draw_null_as_zero true
 

@@ -1,0 +1,58 @@
+app = @properties[:app]
+versions = @properties[:version]
+title       "Todas as respostas" 
+vtitle      "respostas/s"
+area        :stacked
+description "Requests respondidos com o cache ou backend"
+linewidth 2
+draw_null_as_zero true
+
+version_matcher = versions.first == "n-a" ? '*' : '*.*.*'
+
+
+
+field "Backend/2xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.MISS.2*.count_ps)",
+		alias: "Backend/2xx",
+		color: "#7A9942"
+}
+field "Backend/3xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.MISS.3*.count_ps)",
+		alias: "Backend/3xx",
+		color: "#EAE836"
+}
+field "Backend/4xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.MISS.4*.count_ps)",
+		alias: "Backend/4xx",
+		color: "#FFAB00"
+}
+field "Backend/5xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.MISS.5*.count_ps)",
+		alias: "Backend/5xx",
+		color: "#8C2E2E"
+}
+field "Varnish", {
+	data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.HIT.*.count_ps)",
+	alias: "Cache",
+	color: "#2C729E"
+}
+# field "Cache/2xx", {
+# 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.HIT.2*.count_ps)",
+# 		alias: "Cache/2xx",
+# 		color: "#B7DA7A"
+# }
+# field "Cache/3xx", {
+# 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.HIT.3*.count_ps)",
+# 		alias: "Cache/3xx",
+# 		color: "#F6F68E"
+# }
+# field "Cache/4xx", {
+# 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.HIT.4*.count_ps)",
+# 		alias: "Cache/4xx",
+# 		color: "#FFD379"
+# }
+# field "Cache/5xx", {
+# 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.#{version_matcher}.HIT.5*.count_ps)",
+# 		alias: "Cache/5xx",
+# 		color: "#CA7474"
+# }

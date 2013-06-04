@@ -1,0 +1,30 @@
+app = @properties[:app]
+env = "stable"
+version = "03.01.00"
+title       "Respostas | stable 03.01.00" 
+vtitle      "respostas/s"
+area        :stacked
+description "Requests respondidos somente pelos backends"
+linewidth 2
+draw_null_as_zero true
+
+field "HTTP 2xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.stable.03.01.00.MISS.2*.count_ps)",
+		alias: "HTTP 2xx",
+		color: "#7A9942"
+}
+field "HTTP 3xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.stable.03.01.00.MISS.3*.count_ps)",
+		alias: "HTTP 3xx",
+		color: "#EAE836"
+}
+field "HTTP 4xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.stable.03.01.00.MISS.4*.count_ps)",
+		alias: "HTTP 4xx",
+		color: "#FFAB00"
+}
+field "HTTP 5xx", {
+		data: "sum(stats.timers.MireVeja.deliver.#{app}.stable.03.01.00.MISS.5*.count_ps)",
+		alias: "HTTP 5xx",
+		color: "#8C2E2E"
+}

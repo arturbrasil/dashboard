@@ -1,10 +1,10 @@
 app = @properties[:app]
 env = "<%= env %>"
 version = "<%= version %>"
-title       "Respostas para <%= env %> <%= version %>" 
+title       "Respostas | <%= env %> <%= version %>" 
 vtitle      "respostas/s"
 area        :stacked
-description "Requests respondidos com o cache ou backend para app #{app}"
+description "Requests respondidos somente pelos backends"
 linewidth 2
 draw_null_as_zero true
 

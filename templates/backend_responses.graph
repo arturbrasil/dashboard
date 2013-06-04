@@ -1,10 +1,10 @@
 app = @properties[:app]
 versions = @properties[:version]
 envs = @properties[:environment]
-title       "Respostas dos BACKENDs" 
+title       "Respostas dos BACKENDs por environment" 
 vtitle      "respostas/s"
 area        :none
-description "Respostas #{app} por segundo"
+description "Respostas por segundo"
 linewidth 2
 draw_null_as_zero true
 

@@ -4,15 +4,15 @@ envs = @properties[:environment]
 title       "Tempo de medio de resposta dos BACKENDs" 
 vtitle      "miliseconds"
 area        :none
-description "Tempo de resposta para app #{app}"
+description "Tempo de resposta dos BACKENDs"
 linewidth 2
 draw_null_as_zero false
 
 envs.each do |env|
 	versions.each do |version|
 		params = {
-			:data => "avg(stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.*.mean_90)",
-			:alias => "#{env} - #{version}"
+			data: "avg(stats.timers.MireVeja.deliver.#{app}.#{env}.#{version}.MISS.*.mean_90)",
+			alias: "#{env} - #{version}"
 		}
 		params[:alias] = "#{env}" if versions.count <= 1
 		field "#{env}#{version}", params

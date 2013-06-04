@@ -2,32 +2,32 @@ app = @properties[:app]
 title       "Todas as respostas" 
 vtitle      "respostas/s"
 area        :stacked
-description "Requests respondidos com o cache ou backend para app #{app}"
+description "Requests respondidos com o cache ou backend"
 linewidth 2
 draw_null_as_zero true
 
 field "Varnish", {
 	data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.HIT.*.count_ps)",
-	alias: "Varnish",
+	alias: "Cache",
 	color: "#2C729E"
 }
 field "Backend - 2xx", {
 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.2*.count_ps)",
-		alias: "Backend - 2xx",
+		alias: "Backend - HTTP 2xx",
 		color: "#7A9942"
 }
 field "Backend - 3xx", {
 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.3*.count_ps)",
-		alias: "Backend - 3xx",
+		alias: "Backend - HTTP 3xx",
 		color: "#EAE836"
 }
 field "Backend - 4xx", {
 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.4*.count_ps)",
-		alias: "Backend - 4xx",
+		alias: "Backend - HTTP 4xx",
 		color: "#FFAB00"
 }
 field "Backend - 5xx", {
 		data: "sum(stats.timers.MireVeja.deliver.#{app}.*.*.*.*.MISS.5*.count_ps)",
-		alias: "Backend - 5xx",
+		alias: "Backend - HTTP 5xx",
 		color: "#8C2E2E"
 }

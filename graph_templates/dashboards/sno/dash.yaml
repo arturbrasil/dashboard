@@ -1,9 +1,0 @@
-:name: sno
-:description: sno
-:graph_properties: 
- :background_color: "FAFAFA"
- :foreground_color: "3A3A3A"
- :vertical_mark_color: "#330000"
- :environment: ["beta", "stable"]
- :app: sno
- :version: ["01.00.00"]

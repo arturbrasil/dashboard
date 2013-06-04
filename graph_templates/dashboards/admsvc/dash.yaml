@@ -1,9 +1,0 @@
-:name: admsvc
-:description: admsvc
-:graph_properties: 
- :background_color: "FAFAFA"
- :foreground_color: "3A3A3A"
- :vertical_mark_color: "#330000"
- :environment: ["stable"]
- :app: admsvc
- :version: ["01.00.00"]

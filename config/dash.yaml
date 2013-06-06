@@ -9,9 +9,12 @@
   :prefix: ""
   :refresh_rate: 1
   :graph_columns: 3
-  :graph_width: 400
-  :graph_height: 300
+  :graph_width: 500
+  :graph_height: 350
   :interval_filters:
+    - :label: 15 Minutos
+      :from: -15minute
+      :to: now
     - :label: Última Hora
       :from: -1hour
       :to: now

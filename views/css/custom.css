@@ -1,0 +1,12 @@
+/*body{
+	background-image:url('debut_light.png');
+}*/
+
+.table .center {
+   text-align: center;
+}
+
+.table{
+   background-color: white;
+   color: rgb(83, 83, 83);
+}

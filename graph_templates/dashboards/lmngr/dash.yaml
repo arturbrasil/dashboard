@@ -1,5 +1,5 @@
-:name: lmngr
-:description: lmngr
+:name: Sistema de Autorização
+:description: Valida quem tem acesso a que e aonde
 :graph_properties: 
  :background_color: "FAFAFA"
  :foreground_color: "3A3A3A"

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rake/clean'
 require 'rubygems'
 require 'rubygems/package_task'
@@ -28,7 +29,7 @@ task :charts do
     end    
 
     ## Removendo lixos que vem do statsd
-	trash = ["a", "n-a"]
+	trash = ["n-a"]
     trash.each {|t| apps.delete t}
 
     ## Gerando gráficos
@@ -37,27 +38,67 @@ task :charts do
         ERB.new(template).result(binding)
       end
     end
-    
+
     system "rm -rf graph_templates/dashboards && mkdir graph_templates/dashboards"
-    apps.each do |app_name, env_hash|
-        system "mkdir -p graph_templates/dashboards/#{app_name}"
+
+    app_properties = {
+        portal: {
+            name: "Portal",
+            description: "Frontend das lojas, consiste na home, departamentos, categorias, busca, página de produto, etc."
+        },
+        admin: {
+            name: "Portal Admin",
+            description: "Módulo administrativo do frontend das lojas"
+        },
+        a: {
+            name: "Portal Admin/a",
+            description: "Extensão do módulo administrativo do frontend das lojas"
+        },
+        admsvc: {
+            name: "Admin Web Services",
+            description: "Webservices (antigos) de integração com o frontend / módulo administrativo das lojas"
+        },
+        ptlapi: {
+            name: "Portal APIs",
+            description: "APIs de integração (novas) com o frontend / módulo administrativo das lojas"
+        },
+        rnbwp: {
+            name: "Rates and Benefits",
+            description: "Sistema de cálculo de taxas e benefícios"
+        },
+        lmngr: {
+            name: "Sistema de Autorização",
+            description: "Valida quem tem acesso a que e aonde"
+        },
+        pfsys: {
+            name: "Gerenciador de Perfil de Usuário",
+            description: "Sistema gerenciador de informações de perfil de usuário"
+        }
+    }
+
+    apps.each do |app, env_hash|
+        system "mkdir -p graph_templates/dashboards/#{app}"
         
         # Yaml de configuração dos gráficos genéricos
-        f = File.new("graph_templates/dashboards/#{app_name}/dash.yaml", 'w')
+        f = File.new("graph_templates/dashboards/#{app}/dash.yaml", 'w')
+        
         versions = Set.new.tap do |v|
             env_hash.each_value {|version_set| v.merge version_set }
         end
-        r = Renderer.new({app: app_name, envs: env_hash.keys, versions: versions.to_a})
+
+        _name = app_properties[app.to_sym][:name] rescue app
+        _description = app_properties[app.to_sym][:description] rescue app
+        r = Renderer.new({app: app, envs: env_hash.keys, versions: versions.to_a, description: _description, app_name: _name})
         f.puts r.render(File.open("templates/dash.yaml.erb", "r").read)
         
         # Gráficos genéricos
-        system "cp templates/timers.graph templates/all_responses.graph templates/backend_responses.graph graph_templates/dashboards/#{app_name}/"
+        system "cp templates/timers.graph templates/all_responses.graph templates/backend_responses.graph graph_templates/dashboards/#{app}/"
 
         # Gráficos de cada env/version
         env_hash.each do |env, version_set|
             version_set.each do |version|
                 output_filename = "#{env}-#{version}.graph"
-                f = File.new("graph_templates/dashboards/#{app_name}/#{output_filename}", 'w')
+                f = File.new("graph_templates/dashboards/#{app}/#{output_filename}", 'w')
                 r = Renderer.new({env: env, version: version})
                 f.puts r.render(File.open("templates/template.graph.erb", "r").read)
                 f.close

@@ -1,5 +1,5 @@
-:name: ptlapi
-:description: ptlapi
+:name: Portal APIs
+:description: APIs de integração (novas) com o frontend / módulo administrativo das lojas
 :graph_properties: 
  :background_color: "FAFAFA"
  :foreground_color: "3A3A3A"

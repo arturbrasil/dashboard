@@ -2,15 +2,16 @@
 <div class="container">
 <%  @dashboard_to_display.keys.sort.each do |key| %>
 <h2> <%= key.capitalize %> </h2>
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
     <thead>
-        <th width="30%">Name</th>
-        <th width="70%">Description</th>
+        <th class="center" width="30%">App</th>
+        <th class="center" width="70%">Descrição</th>
     </thead>
     <tbody>
         <% @dashboard_to_display[key].sort_by{|b| b[:name].to_s}.each do |board| %>
         <tr>
-            <td><a href="<%= [@prefix, key, board[:link]].join('/') %>/"><%= board[:name] %></a></td><td><%= board[:description] %></td>
+            <td class="center"><a href="<%= [@prefix, key, board[:link]].join('/') %>/"><%= board[:name] %></a></td>
+            <td><%= board[:description] %></td>
         </tr>
         <% end %>
     </tbody>

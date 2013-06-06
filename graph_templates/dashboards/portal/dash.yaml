@@ -1,5 +1,5 @@
-:name: portal
-:description: portal
+:name: Portal
+:description: Frontend das lojas, consiste na home, departamentos, categorias, busca, página de produto, etc.
 :graph_properties: 
  :background_color: "FAFAFA"
  :foreground_color: "3A3A3A"

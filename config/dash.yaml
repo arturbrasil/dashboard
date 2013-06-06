@@ -12,21 +12,21 @@
   :graph_width: 500
   :graph_height: 350
   :interval_filters:
-    - :label: 15 Minutos
+    - :label: 15 minutos
       :from: -15minute
       :to: now
-    - :label: Última Hora
+    - :label: 1 hora
       :from: -1hour
       :to: now
-    - :label: "Última 2 Horas"
+    - :label: 2 horas
       :from: -2hour	
-    - :label: "6 Horas antes"
+    - :label: 6 Horas
       :from: -6hour
-    - :label: "1 dia antes"
+    - :label: 1 dia
       :from: -1day
-    - :label: "1 semana antes"
+    - :label: 1 semana
       :from: -7day
-    - :label: "1 mês antes"
+    - :label: 1 mês
       :from: -1month
   :intervals:
     - [ "-1hour", "1 hora" ]
@@ -34,4 +34,4 @@
     - [ "-6hour", "6 horas" ]
     - [ "-7day", "1 semana" ]
     - [ "-15day", "15 dias" ]
-    - [ "-1month", "1 mes" ]
+    - [ "-1month", "1 mês" ]

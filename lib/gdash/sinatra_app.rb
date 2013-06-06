@@ -121,9 +121,9 @@ class GDash
       end
     end
 
-    Less.paths << File.join(settings.views, 'bootstrap')
-    get "/bootstrap/:name.css" do
-      less :"bootstrap/#{params[:name]}", :paths => ["views/bootstrap"]
+    # Less.paths << File.join(settings.views, 'bootstrap')
+    get "/bootstrap/bootstrap.css" do
+      send_file "views/bootstrap/bootstrap.css"
     end
 
     get '/:category/:dash/details/:name/?*' do

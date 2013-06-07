@@ -1,6 +1,6 @@
-/*body{
+body{
 	background-image:url('debut_light.png');
-}*/
+}
 
 .table .center {
    text-align: center;
@@ -9,4 +9,8 @@
 .table{
    background-color: white;
    color: rgb(83, 83, 83);
+}
+
+img{
+	border: 1px solid rgb(199, 199, 199);
 }

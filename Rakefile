@@ -73,6 +73,10 @@ task :charts do
         pfsys: {
             name: "Gerenciador de Perfil de Usuário",
             description: "Sistema gerenciador de informações de perfil de usuário"
+        },
+        sno: {
+            name: "Shipping Notification",
+            description: "Shipping Notification"
         }
     }
 

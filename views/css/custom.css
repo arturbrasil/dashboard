@@ -10,3 +10,9 @@ body{
    background-color: white;
    color: rgb(83, 83, 83);
 }
+
+.search-top-bar-buttom{
+	margin-left: 0px !important;
+	padding-top: 6px !important;
+	margin-top: -1px !important;
+}

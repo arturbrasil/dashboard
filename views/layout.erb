@@ -36,13 +36,14 @@
                             </li>
                         <% end %>
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Experimente!
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Links
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<%= @graphite_base %>">Graphite Browser</a></li>
+                                    <li><a href="http://vtexhrm.apphb.com/">Vtex HRM</a></li>
                                     <% if @dashboard %>
-                                        <li><a href="<%= uri_to_print %>" target="_blank">Imprima!</a></li>
+                                        <li><a href="<%= uri_to_print %>" target="_blank">Imprimir</a></li>
                                     <% end %> 
                                 </ul>
                             </li>
@@ -51,7 +52,7 @@
                       <form id="form-search" name="dashboards" style="margin: 0;" class="form-search" method="get" action="<%= @prefix %>/search">
                       <div class="input-append">
                       <input class="span2 search-query" name="dashboard" type="text" placeholder="Dashboard..." data-provide="typeahead" data-items="10" data-source='<%= @search_elements.to_s %>' autocomplete="off" />
-                      <button class="btn btn-primary" style="margin-left: -5px; padding-bottom: 5px;" type="submit" value"submit" /><i class="icon-search icon-white"></i></button>
+                      <button class="btn btn-primary search-top-bar-buttom" type="submit" value"submit" /><i class="icon-arrow-right icon-white"></i></button>
                       </div>
                       </form>
                   </div>

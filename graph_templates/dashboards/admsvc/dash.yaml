@@ -1,7 +1,7 @@
 :name: Admin Web Services
 :description: Webservices (antigos) de integração com o frontend / módulo administrativo das lojas
 :graph_properties: 
- :background_color: "FAFAFA"
+ :background_color: white
  :foreground_color: "3A3A3A"
  :vertical_mark_color: "#330000"
  :environment: ["stable"]

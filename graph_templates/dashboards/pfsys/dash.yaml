@@ -1,7 +1,7 @@
 :name: Gerenciador de Perfil de Usuário
 :description: Sistema gerenciador de informações de perfil de usuário
 :graph_properties: 
- :background_color: "FAFAFA"
+ :background_color: white
  :foreground_color: "3A3A3A"
  :vertical_mark_color: "#330000"
  :environment: ["stable"]

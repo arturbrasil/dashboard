@@ -1,7 +1,7 @@
 :name: Rates and Benefits
 :description: Sistema de cálculo de taxas e benefícios
 :graph_properties: 
- :background_color: "FAFAFA"
+ :background_color: white
  :foreground_color: "3A3A3A"
  :vertical_mark_color: "#330000"
  :environment: ["beta", "stable"]

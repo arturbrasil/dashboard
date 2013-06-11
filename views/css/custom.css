@@ -16,3 +16,7 @@ body{
 	padding-top: 6px !important;
 	margin-top: -1px !important;
 }
+
+.align-right{
+	text-align: right;
+}

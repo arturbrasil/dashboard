@@ -1,4 +1,4 @@
-:graphite: http://vejao.mireveja.vtex.com.br:8085
+:graphite: http://localhost:8085
 # :graphite: http://ec2-54-224-232-60.compute-1.amazonaws.com:8085
 # :templatedir: /opt/dashboard/graph_templates
 :templatedir: graph_templates

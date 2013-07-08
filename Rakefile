@@ -6,6 +6,7 @@ require 'json'
 require 'open-uri'
 require 'erb'
 require 'ostruct'
+require 'set'
 
 spec = eval(File.read('gdash.gemspec'))
 
@@ -15,7 +16,7 @@ end
 desc "Pegar index.json com todas as metricas e criar dashboards"
 task :charts do
     ## Recolhendo métricas via json do graphite
-    metrics_path = "http://ec2-54-224-232-60.compute-1.amazonaws.com:8085/metrics/index.json"
+    metrics_path = "http://localhost:8085/metrics/index.json"
     matcher = /^stats.timers.MireVeja.deliver.(vtex.io|[^.]+).([^.]+).(n-a|\d*.\d*.\d*)/
     
     # apps[app][env] => [version1, version2, ...]

@@ -22,7 +22,7 @@ task :charts do
     # apps[app][env] => [version1, version2, ...]
     apps = Hash.new{|hash, key| hash[key] = Hash.new{|hash, key| hash[key] = Set.new}}
 
-    all_metrics = open metrics_path
+    all_metrics = open(metrics_path)
     parsed = JSON.parse(all_metrics.read)
 
     parsed.each do |metric|
@@ -43,41 +43,41 @@ task :charts do
     system "rm -rf graph_templates/dashboards && mkdir graph_templates/dashboards"
 
     app_properties = {
-        portal: {
-            name: "Portal",
-            description: "Frontend das lojas, consiste na home, departamentos, categorias, busca, página de produto, etc."
+        :portal => {
+            :name => "Portal",
+            :description => "Frontend das lojas, consiste na home, departamentos, categorias, busca, página de produto, etc."
         },
-        admin: {
-            name: "Portal Admin",
-            description: "Módulo administrativo do frontend das lojas"
+        :admin => {
+            :name => "Portal Admin",
+            :description => "Módulo administrativo do frontend das lojas"
         },
-        a: {
-            name: "Portal Admin/a",
-            description: "Extensão do módulo administrativo do frontend das lojas"
+        :a => {
+            :name => "Portal Admin/a",
+            :description => "Extensão do módulo administrativo do frontend das lojas"
         },
-        admsvc: {
-            name: "Admin Web Services",
-            description: "Webservices (antigos) de integração com o frontend / módulo administrativo das lojas"
+        :admsvc => {
+            :name => "Admin Web Services",
+            :description => "Webservices (antigos) de integração com o frontend / módulo administrativo das lojas"
         },
-        ptlapi: {
-            name: "Portal APIs",
-            description: "APIs de integração (novas) com o frontend / módulo administrativo das lojas"
+        :ptlapi => {
+            :name => "Portal APIs",
+            :description => "APIs de integração (novas) com o frontend / módulo administrativo das lojas"
         },
-        rnbwp: {
-            name: "Rates and Benefits",
-            description: "Sistema de cálculo de taxas e benefícios"
+        :rnbwp => {
+            :name => "Rates and Benefits",
+            :description => "Sistema de cálculo de taxas e benefícios"
         },
-        lmngr: {
-            name: "Sistema de Autorização",
-            description: "Valida quem tem acesso a que e aonde"
+        :lmngr => {
+            :name => "Sistema de Autorização",
+            :description => "Valida quem tem acesso a que e aonde"
         },
-        pfsys: {
-            name: "Gerenciador de Perfil de Usuário",
-            description: "Sistema gerenciador de informações de perfil de usuário"
+        :pfsys => {
+            :name => "Gerenciador de Perfil de Usuário",
+            :description => "Sistema gerenciador de informações de perfil de usuário"
         },
-        sno: {
-            name: "Shipping Notification",
-            description: "Shipping Notification"
+        :sno => {
+            :name => "Shipping Notification",
+            :description => "Shipping Notification"
         }
     }
 
@@ -93,7 +93,7 @@ task :charts do
 
         _name = app_properties[app.to_sym][:name] rescue app
         _description = app_properties[app.to_sym][:description] rescue app
-        r = Renderer.new({app: app, envs: env_hash.keys, versions: versions.to_a, description: _description, app_name: _name})
+        r = Renderer.new({:app => app, :envs => env_hash.keys, :versions => versions.to_a, :description => _description, :app_name => _name})
         f.puts r.render(File.open("templates/dash.yaml.erb", "r").read)
         
         # Gráficos genéricos
@@ -104,7 +104,7 @@ task :charts do
             version_set.each do |version|
                 output_filename = "#{env}-#{version}.graph"
                 f = File.new("graph_templates/dashboards/#{app}/#{output_filename}", 'w')
-                r = Renderer.new({env: env, version: version})
+                r = Renderer.new({:env => env, :version => version})
                 f.puts r.render(File.open("templates/template.graph.erb", "r").read)
                 f.close
             end
